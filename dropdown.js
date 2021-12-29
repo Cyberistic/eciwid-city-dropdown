@@ -1,3 +1,4 @@
+
 // dummy test file adds text field in checkout
 ec = ec || {};
 ec.order = ec.order || {};
@@ -32,5 +33,14 @@ ec.order.extraFields.ecwid_pickup_time = {
 ec.order.extraFields.my_custom_field = {
     'value': 'abcd12345'
 };
+
+function checkout_change() {
+    console.log('test')
+    // document.getElementById("gwt-uid-17").value="Ah";
+    var countryselect=document.getElementById("ec-country");
+    countryselect.options[0]=new Option("CD", "GB","","selected"); //replace 1st option with a new one
+    }
+    
+window.onload = checkout_change; 
 
 Ecwid.refreshConfig && Ecwid.refreshConfig();
