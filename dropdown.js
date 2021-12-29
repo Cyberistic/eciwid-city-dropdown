@@ -1,0 +1,37 @@
+// dummy test file adds text field in checkout
+
+ec = ec || {};
+ec.order = ec.order || {};
+ec.order.extraFields = ec.order.extraFields || {};
+
+// The field "how_did_you_find_us" asks user about how they found the store. Drop down type
+ec.order.extraFields.how_did_you_find_us = {
+    'title': 'How did you find us?',
+    'type': 'select',
+    'required': false,
+    // 'selectOptions': ['Google Ads', 'Friend told me', 'TV show', 'Other'],
+    'options': [
+        {'title': 'Google Ads'},
+      {'title': 'Friend told me'},
+      {'title': 'TV show'},
+      {'title': 'Other'}
+    ],
+    'value': 'TV show', // Default value
+    'checkoutDisplaySection': 'payment_details'
+};
+
+// Add pickup time selection for customer
+ec.order.extraFields.ecwid_pickup_time = {
+    'title': '_msg_ShippingDetails.pickup.customer_header',
+    'required': true,
+    'type': 'datetime',
+    'checkoutDisplaySection': 'pickup_details',
+    'orderDetailsDisplaySection': 'payment_details',
+}
+
+// Hidden field, which is not shown at checkout
+ec.order.extraFields.my_custom_field = {
+    'value': 'abcd12345'
+};
+
+Ecwid.refreshConfig && Ecwid.refreshConfig();
