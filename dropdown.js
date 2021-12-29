@@ -1,5 +1,4 @@
 // dummy test file adds text field in checkout
-console.log('hi')
 ec = ec || {};
 ec.order = ec.order || {};
 ec.order.extraFields = ec.order.extraFields || {};
