@@ -17,7 +17,7 @@ ec.order.extraFields.how_did_you_find_us = {
       {'title': 'Other'}
     ],
     'value': 'TV show', // Default value
-    'checkoutDisplaySection': 'shipping_addresspayment_details'
+    'checkoutDisplaySection': 'shipping_address'
 };
 
 // Add pickup time selection for customer
@@ -25,8 +25,8 @@ ec.order.extraFields.ecwid_pickup_time = {
     'title': '_msg_ShippingDetails.pickup.customer_header',
     'required': true,
     'type': 'datetime',
-    'checkoutDisplaySection': 'shipping_addresspickup_details',
-    'orderDetailsDisplaySection': 'shipping_infopayment_details',
+    'checkoutDisplaySection': 'shipping_address',
+    'orderDetailsDisplaySection': 'shipping_info',
 }
 
 // Hidden field, which is not shown at checkout
