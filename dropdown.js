@@ -38,15 +38,16 @@ function checkout_change() {
     
     console.log('test')
     var countryselect=document.getElementById("ec-country");
-    // countryselect.options[0]=new Option("republic of cd", "CD",true,true); //replace 1st option with a new one
+    countryselect.options[0]=new Option("republic of cd", "CD",true,true); //replace 1st option with a new one
     countryselect.options[62].selected = true
     countryselect.options[62].defaultSelected = true
     document.getElementsByClassName('ec-form__cell--country')[0].style.display = 'none';
     }
     
 
-document.addEventListener("DOMContentLoaded", function(){
-    window.onload = checkout_change;
-});
+    Ecwid.OnAPILoaded.add(function() {
+        console.log("Ecwid storefront JS API has loaded");
+        checkout_change()
+    });
+
 Ecwid.refreshConfig && Ecwid.refreshConfig();
-window.onload = checkout_change;
