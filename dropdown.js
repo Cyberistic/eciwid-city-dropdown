@@ -46,6 +46,6 @@ function checkout_change() {
     
 
 document.addEventListener("DOMContentLoaded", function(){
-    window.onload = checkout_change();
+    window.onload = checkout_change;
 });
 Ecwid.refreshConfig && Ecwid.refreshConfig();
