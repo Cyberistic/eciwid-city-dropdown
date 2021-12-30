@@ -36,9 +36,9 @@ ec.order.extraFields.my_custom_field = {
 
 function checkout_change() {
     
-
+    console.log('test')
     var countryselect=document.getElementById("ec-country");
-    countryselect.options[0]=new Option("KW", "KW","","selected"); //replace 1st option with a new one
+    countryselect.options[0]=new Option("CD", "GB","","selected"); //replace 1st option with a new one
 
     }
     
