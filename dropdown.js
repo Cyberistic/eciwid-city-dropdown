@@ -43,6 +43,7 @@ function checkout_change() {
     }
     
 
-
+document.addEventListener("DOMContentLoaded", function(){
+    checkout_change();
+});
 Ecwid.refreshConfig && Ecwid.refreshConfig();
-window.onload = checkout_change; 
