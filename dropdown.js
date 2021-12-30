@@ -35,10 +35,9 @@ ec.order.extraFields.my_custom_field = {
 };
 
 function checkout_change() {
-    console.log('test')
-    // document.getElementById("gwt-uid-17").value="Ah";
+    console.log('first test haha')
     var countryselect=document.getElementById("ec-country");
-    countryselect.options[0]=new Option("CD", "GB","","selected"); //replace 1st option with a new one
+    countryselect.options[0]=new Option("CD", "GB","CD","selected"); //replace 1st option with a new one
     }
     
 window.onload = checkout_change; 
