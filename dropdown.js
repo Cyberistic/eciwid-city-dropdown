@@ -45,9 +45,9 @@ function checkout_change() {
     }
     
 
-    Ecwid.OnAPILoaded.add(function() {
-        console.log("Ecwid storefront JS API has loaded");
-        checkout_change()
-    });
+Ecwid.OnAPILoaded.add(function() {
+    console.log("Ecwid storefront JS API has loaded");
+    checkout_change()
+});
 
 Ecwid.refreshConfig && Ecwid.refreshConfig();
