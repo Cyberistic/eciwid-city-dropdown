@@ -38,12 +38,14 @@ function checkout_change() {
     
     console.log('test')
     var countryselect=document.getElementById("ec-country");
-    countryselect.options[0]=new Option("republic of cd", "CD",true,true); //replace 1st option with a new one
+    // countryselect.options[0]=new Option("republic of cd", "CD",true,true); //replace 1st option with a new one
+    countryselect.options[62].selected = true
+    countryselect.options[62].defaultSelected = true
 
     }
     
 
 document.addEventListener("DOMContentLoaded", function(){
-    checkout_change();
+    window.onload = checkout_change();
 });
 Ecwid.refreshConfig && Ecwid.refreshConfig();
