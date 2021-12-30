@@ -41,7 +41,7 @@ function checkout_change() {
     // countryselect.options[0]=new Option("republic of cd", "CD",true,true); //replace 1st option with a new one
     countryselect.options[62].selected = true
     countryselect.options[62].defaultSelected = true
-    document.getElementsByClassName('ec-form__cell--country')[0].style.visibility = 'hidden';
+    document.getElementsByClassName('ec-form__cell--country')[0].style.display = 'none';
     }
     
 
