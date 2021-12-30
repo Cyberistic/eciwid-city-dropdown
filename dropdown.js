@@ -42,6 +42,7 @@ function checkout_change() {
 
     }
     
-window.onload = checkout_change; 
+
 
 Ecwid.refreshConfig && Ecwid.refreshConfig();
+window.onload = checkout_change; 
