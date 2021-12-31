@@ -12,6 +12,7 @@ const cities = {
 }
 
 for (const city in cities) {
+    console.log(city + ' ' + cities[city])
     ec.order.extraFields[city] = {
         'title': '',
         'type': 'select',
