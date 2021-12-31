@@ -17,7 +17,7 @@ const cities = {
 
 for (const city in cities) {
     ec.order.extraFields[city] = {
-        'title': '',
+        'title': city,
         'type': 'select',
         'required': false,
         // 'selectOptions': cities[city],
