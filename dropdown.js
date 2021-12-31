@@ -70,9 +70,19 @@ function checkout_change() {
     }
     
 
+let selected_city = 'KW-AH'
 Ecwid.OnAPILoaded.add(function() {
     console.log("Ecwid storefront JS API has loaded");
     checkout_change()
+    for (const city in cities) {
+        if (city != selected_city) {
+        document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
+        }
+    }
+    // document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'flex';
 });
 
+Ecwid.OnCartChanged.add(function(cart){
+    console.log(cart)
+});
 Ecwid.refreshConfig && Ecwid.refreshConfig();
