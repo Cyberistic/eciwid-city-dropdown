@@ -73,6 +73,18 @@ function checkout_change() {
 let selected_city = 'KW-AH'
 Ecwid.OnAPILoaded.add(function() {
     console.log("Ecwid storefront JS API has loaded");
+    cur_cart = null;
+    Ecwid.Cart.get(function(cart){
+        cur_cart = cart.shippingPerson;
+    });
+    Ecwid.Cart.setAddress({
+        "name": cur_cart.name,
+        "street": cur_cart.street,
+        "city": "New York",
+        "countryName": "United States",
+        "stateOrProvinceCode": "NY",
+        "phone": cur_cart.phone
+        })
     checkout_change()
     for (const city in cities) {
         if (city != selected_city) {
