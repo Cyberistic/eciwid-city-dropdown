@@ -22,7 +22,7 @@ for (const city in cities) {
         'required': false,
         // 'selectOptions': cities[city],
         'options': cities[city].map(e => {return {'title': e}}),
-        // 'value': cities[city[0]], // Default value
+        'value': cities[city[0]], // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
 }
