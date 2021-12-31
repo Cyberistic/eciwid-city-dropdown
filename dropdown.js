@@ -26,35 +26,6 @@ for (const city in cities) {
         'checkoutDisplaySection': 'shipping_address'
     }
 }
-// ec.order.extraFields.how_did_you_find_us = {
-//     'title': 'How did you find us?',
-//     'type': 'select',
-//     'required': false,
-//     // 'selectOptions': ['Google Ads', 'Friend told me', 'TV show', 'Other'],
-//     'options': [
-//         {'title': 'Google Ads'},
-//       {'title': 'Friend told me'},
-//       {'title': 'TV show'},
-//       {'title': 'Other'}
-//     ],
-//     'value': 'TV show', // Default value
-//     'checkoutDisplaySection': 'shipping_address'
-// };
-
-
-// // Add pickup time selection for customer
-// ec.order.extraFields.ecwid_pickup_time = {
-//     'title': '_msg_ShippingDetails.pickup.customer_header',
-//     'required': true,
-//     'type': 'datetime',
-//     'checkoutDisplaySection': 'shipping_address',
-//     'orderDetailsDisplaySection': 'shipping_info',
-// }
-
-// // Hidden field, which is not shown at checkout
-// ec.order.extraFields.my_custom_field = {
-//     'value': 'abcd12345'
-// };
 
 function checkout_change() {
     document.getElementById("ec-country").addEventListener('DOMContentLoaded', function(event) {
@@ -80,9 +51,9 @@ Ecwid.OnAPILoaded.add(function() {
     Ecwid.Cart.setAddress({
         "name": cur_cart.name,
         "street": cur_cart.street,
-        "city": "New York",
-        "countryName": "United States",
-        "stateOrProvinceCode": "NY",
+        "city": cur_cart.city,
+        "countryName": "Kuwait",
+        "stateOrProvinceCode": cur_cart.stateOrProvinceCode,
         "phone": cur_cart.phone
         })
     checkout_change()
