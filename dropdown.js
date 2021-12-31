@@ -14,7 +14,7 @@ const cities = {
 for (const city in cities) {
     console.log(city + ' ' + cities[city])
     ec.order.extraFields[city] = {
-        'title': '',
+        'title': city,
         'type': 'select',
         'required': false,
         // 'selectOptions': ['Google Ads', 'Friend told me', 'TV show', 'Other'],
