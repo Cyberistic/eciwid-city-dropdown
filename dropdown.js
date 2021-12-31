@@ -7,8 +7,8 @@ ec.order.extraFields = ec.order.extraFields || {};
 // The field "how_did_you_find_us" asks user about how they found the store. Drop down type
 
 const cities = {
-    'AH': ['City a', 'City b'],
-    'HA': ['City c', 'City e']
+    'AH': [{'title': 'City a'},{'title': 'City b'}],
+    'HA': [{'title': 'City c'}, {'title': 'City d'}]
 }
 
 for (const city in cities) {
