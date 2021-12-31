@@ -7,18 +7,18 @@ ec.order.extraFields = ec.order.extraFields || {};
 // The field "how_did_you_find_us" asks user about how they found the store. Drop down type
 
 const cities = {
-    'AH': [{'title': 'City a'},{'title': 'City b'}],
-    'HA': [{'title': 'City c'}, {'title': 'City d'}]
+    'AH': ['City a', 'City b'],
+    'HA': ['City c', 'City e']
 }
 
 for (const city in cities) {
     console.log(city + ' ' + cities[city])
     ec.order.extraFields[city] = {
-        'title': city,
+        'title': '',
         'type': 'select',
         'required': false,
         // 'selectOptions': ['Google Ads', 'Friend told me', 'TV show', 'Other'],
-        'options': cities[city],
+        'selectOptions': cities[city],
         'value': 'TV show', // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
