@@ -57,14 +57,14 @@ for (const city in cities) {
 // };
 
 function checkout_change() {
-    ec.document.getElementById("ec-country").addEventListener('DOMContentLoaded', function(event) {
+    document.getElementById("ec-country").addEventListener('DOMContentLoaded', function(event) {
         
-        var countryselect=ec.document.getElementById("ec-country");
+        var countryselect=document.getElementById("ec-country");
         countryselect.options[0]=new Option("republic of cd", "CD",true,true); //replace 1st option with a new one
         console.log(countryselect.options[0])
         countryselect.options[62].selected = true;
         countryselect.options[62].defaultSelected = true;
-        ec.document.getElementsByClassName('ec-form__cell--country')[0].style.display = 'none';
+        document.getElementsByClassName('ec-form__cell--country')[0].style.display = 'none';
       })
 
     }
