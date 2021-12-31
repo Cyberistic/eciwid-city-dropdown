@@ -7,19 +7,22 @@ ec.order.extraFields = ec.order.extraFields || {};
 // The field "how_did_you_find_us" asks user about how they found the store. Drop down type
 
 const cities = {
-    'AH': ['City a', 'City b'],
-    'HA': ['City c', 'City e']
+    'KW-AH': ['City a', 'City b'],
+    'KW-HA': ['City c', 'City e'],
+    'KW-JA': ['City f', 'City g'],
+    'KW-KU': ['City h', 'City i'], 
+    'KW-FA': ['City j', 'City k'],
+    'KW-MU': ['City l', 'City m']
 }
 
 for (const city in cities) {
-    console.log(city + ' ' + cities[city])
     ec.order.extraFields[city] = {
         'title': '',
         'type': 'select',
         'required': false,
-        // 'selectOptions': ['Google Ads', 'Friend told me', 'TV show', 'Other'],
         'selectOptions': cities[city],
-        'value': 'TV show', // Default value
+        // 'options': cities[city],
+        'value': cities[city[0]], // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
 }
