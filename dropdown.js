@@ -17,11 +17,11 @@ const cities = {
 
 for (const city in cities) {
     ec.order.extraFields[city] = {
-        'title': '',
+        'title': city,
         'type': 'select',
         'required': false,
-        'selectOptions': cities[city],
-        // 'options': cities[city],
+        // 'selectOptions': cities[city],
+        'options': cities[city].map(e => {return {'title': e}}),
         'value': cities[city[0]], // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
