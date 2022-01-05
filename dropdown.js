@@ -41,10 +41,11 @@ function checkout_change() {
     }
     
 
-let selected_city = 'KW-AH'
+
 Ecwid.OnAPILoaded.add(function() {
     console.log("Ecwid storefront JS API has loaded");
-    cur_cart = null;
+    let cur_cart = null;
+    let selected_city = null
     Ecwid.Cart.get(function(cart){
         cur_cart = cart.shippingPerson;
         selected_city = cur_cart.stateOrProvinceCode
