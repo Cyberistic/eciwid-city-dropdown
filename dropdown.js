@@ -67,7 +67,10 @@ Ecwid.OnAPILoaded.add(function() {
         }
 
         document.getElementsByClassName('ec-form__cell--state')[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (e) {
-            console.log(e.value)
+            document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'none';
+            document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].style.display = 'flex';
+            selected_city = e.target.value
+            console.log(e.target.value)
         })
     })
     // document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'flex';
