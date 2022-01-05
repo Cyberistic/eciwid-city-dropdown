@@ -98,11 +98,7 @@ Ecwid.OnAPILoaded.add(function() {
 
             document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (f) {
                 Ecwid.Cart.setAddress({
-                    "name": cur_cart.name,
-                    "street": cur_cart.street,
-                    "countryName": cur_cart.countryName,
-                    "stateOrProvinceCode": cur_cart.stateOrProvinceCode,
-                    "phone": cur_cart.phone,
+                    ...cur_cart,
                     "city": f.target.value
                     })
             })
