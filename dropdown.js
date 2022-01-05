@@ -76,8 +76,8 @@ Ecwid.OnAPILoaded.add(function() {
         document.getElementsByClassName('ec-form__cell--state')[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (e) {
             document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'none';
             document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].style.display = 'flex';
-            ec.order.extraFields[city] = { 
-                ...ec.order.extraFields[city],
+            ec.order.extraFields[selected_city] = { 
+                ...ec.order.extraFields[selected_city],
                 'required': false,
             }
             ec.order.extraFields[e.target.value] = { 
@@ -88,8 +88,12 @@ Ecwid.OnAPILoaded.add(function() {
 
             document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (f) {
                 Ecwid.Cart.setAddress({
-                        ...cur_cart,
-                        "city": f.target.value
+                    "name": cur_cart.name,
+                    "street": cur_cart.street,
+                    "countryName": cur_cart.countryName,
+                    "stateOrProvinceCode": cur_cart.stateOrProvinceCode,
+                    "phone": cur_cart.phone,
+                    "city": f.target.value
                     })
             })
             selected_city = e.target.value;
