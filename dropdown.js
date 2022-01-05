@@ -56,12 +56,14 @@ Ecwid.OnAPILoaded.add(function() {
         "stateOrProvinceCode": cur_cart.stateOrProvinceCode,
         "phone": cur_cart.phone
         })
-    checkout_change()
-    for (const city in cities) {
-        if (city != selected_city) {
+    // checkout_change()
+    Ecwid.OnPageLoaded.add(function (page) {
+        for (const city in cities) {
+
         document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
+
         }
-    }
+    })
     // document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'flex';
 });
 
