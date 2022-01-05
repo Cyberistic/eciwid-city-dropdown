@@ -58,11 +58,11 @@ Ecwid.OnAPILoaded.add(function() {
         })
     // checkout_change()
     Ecwid.OnPageLoaded.add(function (page) {
-    for (const city in cities) {
-        if (city != selected_city) {
-            document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
+        for (const city in cities) {
+            if (city != selected_city) {
+                document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
+            }
         }
-    }
     })
     // document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'flex';
 });
