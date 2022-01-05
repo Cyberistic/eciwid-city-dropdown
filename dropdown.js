@@ -49,6 +49,7 @@ Ecwid.OnAPILoaded.add(function() {
     Ecwid.Cart.get(function(cart){
         cur_cart = cart.shippingPerson;
         selected_city = cur_cart.stateOrProvinceCode
+
     });
     Ecwid.Cart.setAddress({
         "name": cur_cart.name,
@@ -65,12 +66,33 @@ Ecwid.OnAPILoaded.add(function() {
                 document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
             }
         }
+        document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (f) {
+            Ecwid.Cart.setAddress({
+                    ...cur_cart,
+                    "city": f.target.value
+                })
+        })
 
         document.getElementsByClassName('ec-form__cell--state')[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (e) {
             document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'none';
             document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].style.display = 'flex';
+            ec.order.extraFields[city] = { 
+                ...ec.order.extraFields[city],
+                'required': false,
+            }
+            ec.order.extraFields[e.target.value] = { 
+                ...ec.order.extraFields[e.target.value],
+                'required': true,
+            }
+            document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].removeEventListener("change", () => {});
+
+            document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (f) {
+                Ecwid.Cart.setAddress({
+                        ...cur_cart,
+                        "city": f.target.value
+                    })
+            })
             selected_city = e.target.value;
-            console.log(e.target.value);
         })
     })
     // document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'flex';
