@@ -49,6 +49,10 @@ Ecwid.OnAPILoaded.add(function() {
     Ecwid.Cart.get(function(cart){
         cur_cart = cart.shippingPerson;
         selected_city = cur_cart.stateOrProvinceCode
+        ec.order.extraFields[selected_city] = { 
+            ...ec.order.extraFields[selected_city],
+            'required': true,
+        }
 
     });
     Ecwid.Cart.setAddress({
@@ -59,6 +63,7 @@ Ecwid.OnAPILoaded.add(function() {
         "stateOrProvinceCode": cur_cart.stateOrProvinceCode,
         "phone": cur_cart.phone
         })
+
     // checkout_change()
     Ecwid.OnPageLoaded.add(function (page) {
         for (const city in cities) {
@@ -66,11 +71,16 @@ Ecwid.OnAPILoaded.add(function() {
                 document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
             }
         }
+                        ec.order.extraFields[selected_city] = { 
+                    ...ec.order.extraFields[selected_city],
+                    'required': true,
+                }
         document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (f) {
             Ecwid.Cart.setAddress({
                     ...cur_cart,
                     "city": f.target.value
                 })
+
         })
 
         document.getElementsByClassName('ec-form__cell--state')[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (e) {
