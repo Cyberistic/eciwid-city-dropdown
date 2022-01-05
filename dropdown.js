@@ -71,7 +71,7 @@ Ecwid.OnAPILoaded.add(function() {
                 document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
             }
         }
-                        ec.order.extraFields[selected_city] = { 
+                    ec.order.extraFields[selected_city] = { 
                     ...ec.order.extraFields[selected_city],
                     'required': true,
                 }
