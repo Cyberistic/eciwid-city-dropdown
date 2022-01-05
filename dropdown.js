@@ -47,6 +47,7 @@ Ecwid.OnAPILoaded.add(function() {
     cur_cart = null;
     Ecwid.Cart.get(function(cart){
         cur_cart = cart.shippingPerson;
+        selected_city = cur_cart.stateOrProvinceCode
     });
     Ecwid.Cart.setAddress({
         "name": cur_cart.name,
