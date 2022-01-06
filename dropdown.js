@@ -27,25 +27,12 @@ for (const city in cities) {
     }
 }
 
-function checkout_change() {
-    document.getElementById("ec-country").addEventListener('DOMContentLoaded', function(event) {
-        
-        var countryselect=document.getElementById("ec-country");
-        countryselect.options[0]=new Option("republic of cd", "CD",true,true); //replace 1st option with a new one
-        console.log(countryselect.options[62])
-        countryselect.options[62].selected = true;
-        countryselect.options[62].defaultSelected = true;
-        document.getElementsByClassName('ec-form__cell--country')[0].style.display = 'none';
-      })
 
-    }
-    
-
-
+    let selected_city = null
 Ecwid.OnAPILoaded.add(function() {
     console.log("Ecwid storefront JS API has loaded");
     let cur_cart = null;
-    let selected_city = null
+
     Ecwid.Cart.get(function(cart){
         cur_cart = cart.shippingPerson;
         selected_city = cur_cart.stateOrProvinceCode
@@ -64,13 +51,17 @@ Ecwid.OnAPILoaded.add(function() {
         "phone": cur_cart.phone
         })
 
-    // checkout_change()
+
+        
     Ecwid.OnPageLoaded.add(function (page) {
-        for (const city in cities) {
-            if (city != selected_city) {
-                document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
+        
+        document.getElementsByClassName('ec-cart-step__section')[0].addEventListener('change', function (f) {
+            for (const city in cities) {
+                if (city != selected_city) {
+                    document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
+                }
             }
-        }
+        })
                     ec.order.extraFields[selected_city] = { 
                     ...ec.order.extraFields[selected_city],
                     'required': true,
