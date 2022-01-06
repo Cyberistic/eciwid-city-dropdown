@@ -40,7 +40,7 @@ for (const city in cities) {
         'checkoutDisplaySection': 'shipping_address'
     }
 }
-
+}
 
 let selected_city = null
 Ecwid.OnAPILoaded.add(function() {
