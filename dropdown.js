@@ -35,11 +35,11 @@ for (const city in cities) {
             'nameTranslated': {
                 'en': 'Delivery',
                 'ar': 'سعر التوصيل'
-            },
-        'value': cities[city[0][0]], // Default value
+            }
+        },
+        'value': '', // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
-}
 }
 
 let selected_city = null
