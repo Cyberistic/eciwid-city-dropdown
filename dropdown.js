@@ -28,11 +28,11 @@ for (const city in cities) {
 }
 
 
-    let selected_city = null
+    
 Ecwid.OnAPILoaded.add(function() {
     console.log("Ecwid storefront JS API has loaded");
     let cur_cart = null;
-
+    let selected_city = null
     Ecwid.Cart.get(function(cart){
         cur_cart = cart.shippingPerson;
         selected_city = cur_cart.stateOrProvinceCode
@@ -54,7 +54,7 @@ Ecwid.OnAPILoaded.add(function() {
 
         
     Ecwid.OnPageLoaded.add(function (page) {
-        
+
         document.getElementsByClassName('ec-cart-step__section')[0].addEventListener('change', function (f) {
             for (const city in cities) {
                 if (city != selected_city) {
