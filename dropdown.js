@@ -36,7 +36,7 @@ for (const city in cities) {
                 'en': 'Delivery',
                 'ar': 'سعر التوصيل'
             },
-        'value': cities[city[0]], // Default value
+        'value': cities[city[0][0]], // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
 }
