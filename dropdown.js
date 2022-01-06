@@ -37,7 +37,7 @@ for (const city in cities) {
                 'ar': 'سعر التوصيل'
             }
         },
-        showZeroSurchargeInTotal = false,
+        'showZeroSurchargeInTotal' : false,
         'value': '', // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
