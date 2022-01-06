@@ -37,6 +37,7 @@ for (const city in cities) {
                 'ar': 'سعر التوصيل'
             }
         },
+        showZeroSurchargeInTotal = false,
         'value': '', // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
@@ -98,15 +99,15 @@ Ecwid.OnAPILoaded.add(function() {
             }
             document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].removeEventListener("change", () => {});
 
-            let target = document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0]
+            let targeted = document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0]
             Ecwid.Cart.setAddress({
                 "name": document.getElementById('ec-full-name').value,
                 "phone": document.getElementById('ec-phone').value,
                 "street": document.getElementById('ec-address-line1').value,
                 "stateOrProvinceCode": e.target.value,
-                "city": target.value
+                "city": targeted.value
                 })
-            target.addEventListener('change', function (f) {
+            targeted.addEventListener('change', function (f) {
                 Ecwid.Cart.setAddress({
                     "name": document.getElementById('ec-full-name').value,
                     "phone": document.getElementById('ec-phone').value,
