@@ -78,15 +78,15 @@ Ecwid.OnAPILoaded.add(function() {
             }
         }
 
-        document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (f) {
+        document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].onchange =  function (f) {
             Ecwid.Cart.setAddress({
                     ...cur_cart,
                     "city": f.target.value
                 })
 
-        })
+        }
 
-        document.getElementsByClassName('ec-form__cell--state')[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (e) {
+        document.getElementsByClassName('ec-form__cell--state')[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].onchange =  function (e) {
             document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'none';
             document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].style.display = 'flex';
             ec.order.extraFields[selected_city] = { 
@@ -97,7 +97,7 @@ Ecwid.OnAPILoaded.add(function() {
                 ...ec.order.extraFields[e.target.value],
                 'required': true,
             }
-            document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].removeEventListener('change', () => {});
+            // document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].removeEventListener('change', () => {});
 
             let targeted = document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0]
             Ecwid.Cart.setAddress({
@@ -107,7 +107,7 @@ Ecwid.OnAPILoaded.add(function() {
                 "stateOrProvinceCode": e.target.value,
                 "city": targeted.value
                 })
-            targeted.addEventListener('change', function (f) {
+            targeted..onchange =  function (f) {
                 Ecwid.Cart.setAddress({
                     "name": document.getElementById('ec-full-name').value,
                     "phone": document.getElementById('ec-phone').value,
@@ -115,9 +115,9 @@ Ecwid.OnAPILoaded.add(function() {
                     "stateOrProvinceCode": e.target.value,
                     "city": f.target.value
                     })
-            })
+            }
             selected_city = e.target.value;
-        })
+        }
     })
     // document.getElementsByClassName('ec-form__cell--' + selected_city)[0].style.display = 'flex';
 });
