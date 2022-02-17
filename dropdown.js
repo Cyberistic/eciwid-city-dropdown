@@ -74,7 +74,6 @@ Ecwid.OnAPILoaded.add(function() {
         for (const city in cities) {
             if (city !== selected_city) {
                 document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
-                console.log(city + ' is hidden');
             }
         }
 
@@ -104,6 +103,7 @@ Ecwid.OnAPILoaded.add(function() {
                 "name": document.getElementById('ec-full-name').value,
                 "phone": document.getElementById('ec-phone').value,
                 "street": document.getElementById('ec-address-line1').value,
+                "countryName": "Kuwait",
                 "stateOrProvinceCode": e.target.value,
                 "city": targeted.value
                 })
@@ -112,6 +112,7 @@ Ecwid.OnAPILoaded.add(function() {
                     "name": document.getElementById('ec-full-name').value,
                     "phone": document.getElementById('ec-phone').value,
                     "street": document.getElementById('ec-address-line1').value,
+                    "countryName": "Kuwait",
                     "stateOrProvinceCode": e.target.value,
                     "city": f.target.value
                     })
