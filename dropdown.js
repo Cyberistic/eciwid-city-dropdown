@@ -38,14 +38,14 @@ for (const city in cities) {
             }
         },
         'showZeroSurchargeInTotal' : false,
-        'value': '', // Default value
         'checkoutDisplaySection': 'shipping_address'
     }
 }
 
-let selected_city = null
+
 Ecwid.OnAPILoaded.add(function() {
     console.log("Ecwid storefront JS API has loaded");
+    let selected_city = null;
     let cur_cart = null;
 
     Ecwid.Cart.get(function(cart){
@@ -53,10 +53,12 @@ Ecwid.OnAPILoaded.add(function() {
         selected_city = cur_cart.stateOrProvinceCode
         ec.order.extraFields[selected_city] = { 
             ...ec.order.extraFields[selected_city],
-            'required': true,
+            'required': true
         }
 
     });
+
+
     Ecwid.Cart.setAddress({
         "name": cur_cart.name,
         "street": cur_cart.street,
@@ -70,14 +72,12 @@ Ecwid.OnAPILoaded.add(function() {
         
     Ecwid.OnPageLoaded.add(function (page) {
         for (const city in cities) {
-            if (city != selected_city) {
+            if (city !== selected_city) {
                 document.getElementsByClassName('ec-form__cell--' + city)[0].style.display = 'none';
+                console.log(city + ' is hidden');
             }
         }
-                    ec.order.extraFields[selected_city] = { 
-                    ...ec.order.extraFields[selected_city],
-                    'required': true,
-                }
+
         document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].addEventListener('change', function (f) {
             Ecwid.Cart.setAddress({
                     ...cur_cart,
@@ -97,7 +97,7 @@ Ecwid.OnAPILoaded.add(function() {
                 ...ec.order.extraFields[e.target.value],
                 'required': true,
             }
-            document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].removeEventListener("change", () => {});
+            document.getElementsByClassName('ec-form__cell--' + selected_city)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0].removeEventListener('change', () => {});
 
             let targeted = document.getElementsByClassName('ec-form__cell--' + e.target.value)[0].getElementsByClassName('form-control--select')[0].getElementsByClassName('form-control__select')[0]
             Ecwid.Cart.setAddress({
